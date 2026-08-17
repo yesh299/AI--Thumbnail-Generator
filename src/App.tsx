@@ -7,7 +7,7 @@ import LenisScroll from "./components/LenisScroll";
 import Generate from "./pages/Generate";
 import MyGeneration from "./pages/MyGeneration";
 import Ytpreview from "./pages/Ytpreview";
-import Login from "./components/login";
+import Login from "./components/Login";
 
 export default function App() {
   return (
