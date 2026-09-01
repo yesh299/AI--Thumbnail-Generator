@@ -36,7 +36,7 @@ export default function Navbar() {
             to="/my-generation"
             className="hover:text-pink-500 transition transition "
           >
-            My Generate
+            My Generations
           </Link>
           <Link to="#" className="hover:text-pink-500 transition transition ">
             My Contact
