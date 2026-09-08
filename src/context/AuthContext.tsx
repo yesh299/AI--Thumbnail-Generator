@@ -77,11 +77,14 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const logout = async () => {
     try {
       const { data } = await api.post("api/auth/logout");
-      setUser(null);
-      setIsLoggedIn(false);
       toast.success(data.message);
     } catch (error) {
-      console.log(error);
+      if (!axios.isAxiosError(error) || error.response?.status !== 401) {
+        console.error(error);
+      }
+    } finally {
+      setUser(null);
+      setIsLoggedIn(false);
     }
   };
   const fetchUser = async () => {

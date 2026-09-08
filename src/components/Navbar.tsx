@@ -107,7 +107,7 @@ export default function Navbar() {
           <button
             onClick={() => {
               setIsOpen(false);
-              logout;
+              void logout();
             }}
           >
             Logout
