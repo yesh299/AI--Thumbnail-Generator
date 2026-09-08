@@ -41,14 +41,17 @@ export default function Navbar() {
             </Link>
           ) : (
             <Link
-              to="#"
+              to="/about"
               className="hover:text-pink-500 'transition' transition "
             >
               About
             </Link>
           )}
 
-          <Link to="#" className="hover:text-pink-500 'transition' transition ">
+          <Link
+            to="/contact"
+            className="hover:text-pink-500 'transition' transition "
+          >
             Contact us
           </Link>
         </div>
@@ -95,12 +98,12 @@ export default function Navbar() {
             My Generate
           </Link>
         ) : (
-          <Link onClick={() => setIsOpen(false)} to="#">
+          <Link onClick={() => setIsOpen(false)} to="/about">
             About
           </Link>
         )}
 
-        <Link onClick={() => setIsOpen(false)} to="#">
+        <Link onClick={() => setIsOpen(false)} to="/contact">
           Contact us
         </Link>
         {isLoggedIn ? (
