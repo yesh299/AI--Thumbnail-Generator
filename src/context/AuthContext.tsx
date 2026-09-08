@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
 import type { IUser } from "../assets/assets";
 import api from "../configs/api";
 import toast from "react-hot-toast";
@@ -91,7 +92,9 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         setIsLoggedIn(true);
       }
     } catch (error) {
-      console.log(error);
+      if (!axios.isAxiosError(error) || error.response?.status !== 401) {
+        console.error(error);
+      }
     }
   };
   useEffect(() => {
