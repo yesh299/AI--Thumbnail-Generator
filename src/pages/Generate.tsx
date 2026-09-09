@@ -43,7 +43,7 @@ const Generate = () => {
       prompt: additionalDetails,
       style,
       aspect_ratio: aspectRatio,
-      color_schemes: ColorSchemeId,
+      color_scheme: ColorSchemeId,
       text_overlay: true,
     };
     const { data } = await api.post("/api/thumbnail/generate", api_payload);
@@ -55,12 +55,12 @@ const Generate = () => {
 
   const fetchThumbnail = async () => {
     try {
-      const { data } = await api.get(`/api/user/thumbnail/&{id}`);
+      const { data } = await api.get(`/api/user/thumbnail/${id}`);
       setThumbnail(data?.thumbnail as IThumbnail);
       setLoading(!data?.thumbnail?.image_url);
       setAdditionalDetails(data?.thumbnail?.user_prompt);
       setTitle(data?.thumbnail?.title);
-      setColorSchemeId(data?.thumbnail?.color_schemes);
+      setColorSchemeId(data?.thumbnail?.color_scheme);
       setAspectRatio(data?.thumbnail?.aspect_ratio);
       setStyle(data?.thumbnail?.style);
     } catch (error: any) {

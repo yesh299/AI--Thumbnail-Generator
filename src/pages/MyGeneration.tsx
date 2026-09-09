@@ -23,7 +23,7 @@ const MyGeneration = () => {
   const fetchThumbnail = async () => {
     try {
       setLoading(true);
-      const { data } = await api.get("/api/user/thumbnails");
+      const { data } = await api.get("/api/user/thumbnail");
       setThumbnails(data.thumbnails || []);
     } catch (error: any) {
       console.error(error);
