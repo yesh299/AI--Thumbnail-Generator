@@ -71,7 +71,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
       toast.success(data.message);
     } catch (error) {
-      console.log(error);
+      if (axios.isAxiosError(error)) {
+        toast.error(error.response?.data?.message || "Unable to login");
+      } else {
+        toast.error("Unable to login");
+      }
     }
   };
   const logout = async () => {
